@@ -16,6 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from contactform import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('contact/', views.new_post, name='post_new'),
+    path('contact/<int:pk>/', views.post_detail, name='post_detail'), 
+    path('contact/<int:pk>/edit/', views.post_edit, name='post_edit'),
 ]

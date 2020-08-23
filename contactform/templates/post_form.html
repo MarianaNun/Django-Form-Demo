@@ -1,0 +1,14 @@
+<html>
+    <head>
+    </head>
+    <body>
+    <form method="POST">
+    {% csrf_token %}
+    {{ form }}
+
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+    </body>
+</html>
+
+

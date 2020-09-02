@@ -1,45 +1,40 @@
-# Python: Getting Started
-
-A barebones Django app, which can easily be deployed to Heroku.
-
-This application supports the [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/getting-started-with-python) article - check it out.
+# django-form-demo
 
 ## Running Locally
 
-Make sure you have Python 3.7 [installed locally](http://install.python-guide.org). To push to Heroku, you'll need to install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-cli), as well as [Postgres](https://devcenter.heroku.com/articles/heroku-postgresql#local-setup).
-
 ```sh
-$ git clone https://github.com/heroku/python-getting-started.git
-$ cd python-getting-started
+$ git clone https://github.com/Arcangel617/django-form-demo.git
+$ cd django-form-demo
 
-$ python3 -m venv getting-started
-$ pip install -r requirements.txt
-
-$ createdb python_getting_started
+$ python3 -m venv .venv
+$ pip3 install -r requirements.txt
 
 $ python manage.py migrate
-$ python manage.py collectstatic
 
-$ heroku local
+$ python3 migrate.py runserver
 ```
 
-Your app should now be running on [localhost:5000](http://localhost:5000/).
+Your app should now be running on [localhost:8000](http://localhost:8000/).
 
 ## Deploying to Heroku
 
 ```sh
+$ heroku login
 $ heroku create
 $ git push heroku master
 
 $ heroku run python manage.py migrate
 $ heroku open
 ```
-or
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+## Monitoring commands
 
-## Documentation
+`heroku ps` allows you to check the status of your application.
 
-For more information about using Python on Heroku, see these Dev Center articles:
+`heroku logs --tail` allows you to check all the activity in the server regarding your applcation.
 
-- [Python on Heroku](https://devcenter.heroku.com/categories/python)
+## Troubleshooting
+
+You might need to run `heroku config:set DISABLE_COLLECTSTATIC=1` in order to disable collectstatic
+
+Also you might need add your heroku domain to `ALLOWED_HOSTS` at your `settings.py`.

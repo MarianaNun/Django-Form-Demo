@@ -9,10 +9,11 @@ $ cd django-form-demo
 $ python3 -m venv .venv
 $ pip3 install -r requirements.txt
 
-$ python manage.py migrate
+$ python3 manage.py migrate
 
 $ python3 migrate.py runserver
 ```
+**Note:** You can also run `heroku local` to run your application
 
 Your app should now be running on [localhost:8000](http://localhost:8000/).
 
